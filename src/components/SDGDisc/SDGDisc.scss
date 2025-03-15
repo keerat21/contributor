@@ -1,0 +1,57 @@
+.sdg-disc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f4f4;
+
+  &__container {
+      position: relative;
+      width: 600px;
+      height: 300px;
+      border-radius: 10%;
+      background: #9e6e6e;
+      box-shadow: 0 4px 100px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.1s linear; // Smooth rotation
+ 
+  }
+
+  &__inner {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border-radius: 10%;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s linear; // Smooth rotation
+  }
+
+  &__segment {
+      position: absolute;
+      width: 120px;
+      height: 40px;
+      text-align: center;
+      background: #009688;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 5px;
+      transform-origin: center;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+
+      &:hover {
+          background: #00796b;
+          transform: translate3d(10px,10%,2rem)
+      
+      }
+
+  
+  }
+}
