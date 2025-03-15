@@ -4,8 +4,6 @@ import "./SDGDisc.scss";
 
 import { SDGs } from "../../assets/goalsData";
 
-
-
 const SDGDisc = () => {
     const [rotation, setRotation] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
@@ -42,7 +40,9 @@ const SDGDisc = () => {
                 <div className="sdg-disc__inner" style={{
                     transform: `rotate(-${rotation}deg)`,
                 }}>
-                    <img src="/vite.svg" alt="" />
+                    <img 
+                        src="/images/other/sustainableDevelopmentGoalsText.png" 
+                        alt="SDG Text"/>
                 </div>
             </div>
         </div>

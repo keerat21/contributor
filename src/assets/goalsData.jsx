@@ -1,5 +1,5 @@
 export const SDGs = [
-    { id: 1, name: "No Poverty" },
+    { id: 1, name: "No Poverty", image: "/images/sdgImages/sdg1.png" },
     { id: 2, name: "Zero Hunger" },
     { id: 3, name: "Good Health and Well-being" },
     { id: 4, name: "Quality Education" },
