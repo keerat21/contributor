@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./GoalPage.scss";
 import { SDGs } from "../../assets/goalsData";
+import axios from "axios";
 import { Line } from "react-chartjs-2";
 import {
     Chart as ChartJS,
@@ -41,6 +42,14 @@ const GoalPage = () => {
     useEffect(() => {
         // Fetch existing progress news from API
         // Fetch chart data from API (mock example below)
+        axios.get(`http://localhost:5000/api/goals/${goalId}`)
+            .then(response => {
+                setPosts(response.data.posts || []);
+                setResources(response.data.resources || []);
+                setProgressNews(response.data.progressNews || []);
+
+            })
+            .catch(error => console.error("Error fetching goal data:", error));
         setChartData({
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             datasets: [
@@ -60,15 +69,21 @@ const GoalPage = () => {
         });
     }, [goalId]);
 
+
     const handleActionSubmit = (targetId) => {
         if (newAction.trim()) {
-            setUserActions(prevActions => ({
-                ...prevActions,
-                [targetId]: [...(prevActions[targetId] || []), newAction]
-            }));
-            setNewAction("");
+            axios.post(`http://localhost:5000/api/goals/${goalId}/actions`, { text: newAction })
+                .then(response => {
+                    setUserActions(prevActions => ({
+                        ...prevActions,
+                        [targetId]: response.data.actions || []
+                    }));
+                    setNewAction("");
+                })
+                .catch(error => console.error("Error submitting action:", error));
         }
     };
+
 
     const handleVote = (targetId, type) => {
         setTargetVotes(prevVotes => ({
@@ -79,9 +94,11 @@ const GoalPage = () => {
 
     const handlePostSubmit = () => {
         if (newPost.trim()) {
-            const post = { id: posts.length + 1, text: newPost, author: "Anonymous", upvotes: 0, downvotes: 0, responses: [] };
-            setPosts([post, ...posts]);
-            setNewPost("");
+            axios.post(`http://localhost:5000/api/goals/${goalId}/posts`, { text: newPost, author: "Anonymous" })
+                .then(response => {
+                    setPosts(response.data.posts);
+                    setNewPost("");
+                });
         }
     };
 
@@ -90,9 +107,11 @@ const GoalPage = () => {
     const handleResourceSubmit = () => {
         const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/;
         if (newResource.trim() && urlPattern.test(newResource)) {
-            const resource = { id: resources.length + 1, name: newResource };
-            setResources([resource, ...resources]);
-            setNewResource("");
+            axios.post(`http://localhost:5000/api/goals/${goalId}/resources`, { url: newResource })
+                .then(response => {
+                    setResources(response.data.resources);
+                    setNewResource("");
+                });
         } else {
             alert("Please enter a valid URL.");
         }
