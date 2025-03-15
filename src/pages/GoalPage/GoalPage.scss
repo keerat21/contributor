@@ -1,0 +1,220 @@
+.goal-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+
+    &__layout {
+        display: flex;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #1565c0;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #333;
+        max-width: 800px;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__tab {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        background: #90caf9;
+        color: #fff;
+
+        &.active {
+            background: #1976d2;
+            transform: scale(1.05);
+        }
+
+        &:hover {
+            background: #1565c0;
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+
+    }
+
+    &__content {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-height: 300px;
+        overflow: hidden;
+    }
+
+ 
+
+    &__discussion,
+    &__progress,
+    &__challenges,
+    &__resources,
+    &__targets {
+        width: 100%;
+        max-width: 800px;
+        background: #ffffff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #1976d2;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        textarea,
+        input {
+            width: 100%;
+            height: 50px;
+            border: 2px solid #90caf9;
+            border-radius: 8px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
+            transition: 0.3s;
+
+            &:focus {
+                border-color: #1976d2;
+                box-shadow: 0 0 10px rgba(25, 118, 210, 0.2);
+            }
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+
+
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 1rem;
+            background: #1976d2;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                background: #0d47a1;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+            
+            .goal-page__post,
+            li {
+                background: #f1f8e9;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                border-left: 5px solid #43a047;
+                transition: 0.3s;
+
+                &:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+
+                p {
+                    font-size: 1rem;
+                    color: #2e7d32;
+                    margin-bottom: 0.5rem;
+                }
+
+                span {
+                    font-size: 0.9rem;
+                    color: #555;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    &__targets {
+        width: 100%;
+        max-width: 800px;
+        margin-top: 2rem;
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+        h2 {
+            font-size: 1.8rem;
+            color: #1976d2;
+            text-align: center;
+        }
+
+        .goal-page__target {
+            background: #f1f8e9;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            border-left: 5px solid #43a047;
+            transition: 0.3s;
+
+            button {
+                background: none;
+                border: none;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                color: #1565c0;
+                width: 100%;
+                text-align: left;
+                padding: 0.5rem 0;
+
+                &:hover {
+                    color: #0d47a1;
+                }
+            }
+
+            p {
+                font-size: 1rem;
+                color: #2e7d32;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}

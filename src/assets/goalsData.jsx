@@ -15,5 +15,16 @@ export const SDGs = [
     { id: 14, name: "Life Below Water" },
     { id: 15, name: "Life on Land" },
     { id: 16, name: "Peace, Justice, and Strong Institutions" },
-    { id: 17, name: "Partnerships for the Goals" }
+    {
+        id: 17,
+        name: "Partnerships for the Goals",
+        description: "Strengthen global partnerships for sustainable development.",
+        targets: [
+            { id: "17.1", text: "Strengthen domestic resource mobilization, including through international support to developing countries, to improve domestic capacity for tax and other revenue collection." },
+            { id: "17.2", text: "Developed countries to implement fully their official development assistance commitments, including the commitment by many developed countries to achieve the target of 0.7 per cent of ODA/GNI to developing countries..." },
+            { id: "17.3", text: "Mobilize additional financial resources for developing countries from multiple sources." },
+            { id: "17.4", text: "Assist developing countries in attaining long-term debt sustainability through coordinated policies..." }
+            // Add more targets as needed
+        ]
+    }
 ];
