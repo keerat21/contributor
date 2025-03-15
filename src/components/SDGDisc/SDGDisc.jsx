@@ -20,28 +20,30 @@ const SDGDisc = () => {
 
     return (
         <div className="sdg-disc">
-            <div className="sdg-disc__container" style={{ transform: `rotate(${rotation}deg)` }} onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
-                {SDGs.map((goal, index) => {
-                    const angle = index * (360 / SDGs.length);
+        <div className="sdg-disc__container" style={{ transform: `rotate(${rotation}deg)` }} onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
+            {SDGs.map((goal, index) => {
+                const angle = index * (360 / SDGs.length);
                     return (
-
                         <Link to={`/goal/${goal.id}`}
-                            key={goal.id}
-                            className="sdg-disc__segment"
-                            style={{
-                                transform: `rotate(${angle}deg) translate(450px) rotate(-${rotation + angle}deg)`,
-                            }}
-                        >
-                            <span className="sdg-disc__text">{goal.name}</span>
-                        </Link>
-
+                        key={goal.id}
+                        className="sdg-disc__segment"
+                        style={{
+                            transform: `rotate(${angle}deg) translate(200px) rotate(-${angle}deg)`,
+                        }}
+                    >
+                        <img
+                            src={goal.image}
+                            alt={goal.name}
+                            className="sdg-disc__image"
+                        />
+                    </Link>
                     );
                 })}
                 <div className="sdg-disc__inner" style={{
                     transform: `rotate(-${rotation}deg)`,
                 }}>
                     <img 
-                        src="/images/other/sustainableDevelopmentGoalsText.png" 
+                        src="/images/other/sustainableDevelopmentGoalsTextSmall.png" 
                         alt="SDG Text"/>
                 </div>
             </div>
