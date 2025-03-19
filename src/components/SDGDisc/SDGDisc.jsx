@@ -4,8 +4,6 @@ import "./SDGDisc.scss";
 
 import { SDGs } from "../../assets/goalsData";
 
-
-
 const SDGDisc = () => {
     const [rotation, setRotation] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
@@ -26,23 +24,27 @@ const SDGDisc = () => {
                 {SDGs.map((goal, index) => {
                     const angle = index * (360 / SDGs.length);
                     return (
-
                         <Link to={`/goal/${goal.id}`}
                             key={goal.id}
                             className="sdg-disc__segment"
                             style={{
-                                transform: `rotate(${angle}deg) translate(450px) rotate(-${rotation + angle}deg)`,
+                                transform: `rotate(${angle}deg) translate(200px) rotate(-${angle + rotation}deg)`,
                             }}
                         >
-                            <span className="sdg-disc__text">{goal.name}</span>
+                            <img
+                                src={goal.image}
+                                alt={goal.name}
+                                className="sdg-disc__image"
+                            />
                         </Link>
-
                     );
                 })}
                 <div className="sdg-disc__inner" style={{
                     transform: `rotate(-${rotation}deg)`,
                 }}>
-                    <img src="/vite.svg" alt="" />
+                    <img
+                        src="/images/other/sustainableDevelopmentGoalsTextSmall.png"
+                        alt="SDG Text" />
                 </div>
             </div>
         </div>

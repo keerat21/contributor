@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./GoalPage.scss";
 import { SDGs } from "../../assets/goalsData";
+import backIcon from "/images/other/backIcon.png"
+
 import axios from "axios";
 import { Line } from "react-chartjs-2";
 import {
@@ -38,6 +40,8 @@ const GoalPage = () => {
     const [activeTab, setActiveTab] = useState("discussion");
     const [progressNews, setProgressNews] = useState([]);
     const [chartData, setChartData] = useState({ labels: [], datasets: [] });
+
+    const navigator = useNavigate();
 
     useEffect(() => {
         // Fetch existing progress news from API
@@ -119,7 +123,11 @@ const GoalPage = () => {
 
     return (
         <div className="goal-page">
-            <h1>{goal ? goal.name : "Goal Not Found"}</h1>
+            <span className="goal-page__header">
+                <img src={backIcon} alt="Back icon" className="back-icon" onClick={() => { navigator(-1); }} />
+                <h1>{goal ? goal.name : "Goal Not Found"}</h1>
+            </span>
+
             <p>{goal?.description}</p>
             {/* Progress News Section */}
             <div className="goal-page__layout">

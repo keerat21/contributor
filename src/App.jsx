@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './App.scss'
 import SDGDisc from './components/SDGDisc/SDGDisc'
 import PieChart from './components/PieChart/PieChart'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
