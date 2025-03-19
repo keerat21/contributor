@@ -28,7 +28,7 @@ const SDGDisc = () => {
                             key={goal.id}
                             className="sdg-disc__segment"
                             style={{
-                                transform: `rotate(${angle}deg) translate(200px) rotate(-${angle + rotation}deg)`,
+                                transform: `rotate(${angle}deg) translate(300px) rotate(-${angle + rotation}deg)`,
                             }}
                         >
                             <img
